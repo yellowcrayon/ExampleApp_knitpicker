@@ -1,0 +1,738 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <!-- Google fonts -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text:100,300,400" rel="stylesheet">
+
+<style>
+
+    body{
+        /* color: #FFF; */
+        /* Font color */
+        color: black;
+        /* font-family: sans-serif; */
+        font-family:'Roboto', sans-serif;
+        font-size: 20px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      /* margin: 40px; */
+      /* Controls how much whtie space is on the left and right of everything */
+      /* margin: 0px 60px 0px; */
+      margin: 0% 10% 0%;
+      /* margin: 0px 5px 0px; */
+    }
+
+    .head{
+        flex-basis: 100%;
+        padding: 20px;
+        /* background: #6E988F; */
+        margin: 10px;
+        /* border: 1px solid black; */
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 100px;
+        margin-left: 100px;
+        position: relative;
+        min-height: 150px;
+
+        /* background: #6E988F; */
+        /* background-image: url("/RavelryDifficultyPredictor/img/knit-pattern-green2.jpg"); */
+        /* background-image: src="/img/knit-pattern-green2.jpg"; */
+        background-image: url("/static/img/knit-pattern-green7.jpg");
+        background-size: cover;
+        /* background-image: url("/static/knit-pattern-green9.jpg"); */
+        /* background-position: bottom; */
+        /* min-width: 100%; */
+        /* height: auto; */
+        background-repeat: no-repeat;
+        background-clip: padding-box;
+    }
+
+    .headcontent{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        padding: 20px;
+    }
+
+    .mytitle{
+      font-size: 70px;
+      font-weight: 100;
+      color: white;
+    }
+
+    .searchbox{
+      flex-basis: 100%;
+      padding: 20px;
+      background: lightgray;
+      margin: 10px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-right: 100px;
+      margin-left: 100px;
+    }
+
+    .resultshead{
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-basis: 100%;
+      /* padding: 20px; */
+      padding: 0px;
+      background: white;
+      /* background: lightblue; */
+      margin: 10px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-right: 100px;
+      margin-left: 140px;
+      position: relative;
+      min-height: 70px;
+    }
+
+    .resultsheadcontent{
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      padding: 0px;
+      font-size: 30px;
+      font-family: 'Crimson Text', serif;
+    }
+
+    .box-container{
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-basis: 100%;
+      padding: 20px;
+      background: white;
+      /* margin: 10px; */
+      border: 1px solid lightgray;
+      border-radius: 2px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-right: 100px;
+      margin-left: 100px;
+      position: relative;
+      /* min-height: 150px; */
+    }
+
+    .box-container2{
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      flex-basis: 100%;
+      padding: 20px;
+      background: white;
+      /* margin: 10px; */
+      border: none;
+      /* border-radius: 2px; */
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-right: 100px;
+      margin-left: 100px;
+      position: relative;
+      /* align-items: center; */
+      justify-content: center;
+      /* min-height: 150px; */
+    }
+
+    .box{
+        /* height:500px; */
+        background-color: white;
+        /* padding: 20px; */
+        margin: 0px 10px 10px 10px;
+        flex-wrap: nowrap;
+    }
+
+    .one{
+      /*  width must add up to 100% with box two width */
+        width: 30%;
+    }
+
+    .two{
+      /*  width must add up to 100% with box one width */
+        width: 70%;
+        padding-left: 15px;
+    }
+
+    .url-label{
+      margin-bottom: 10px;
+      font-family: 'Crimson Text', serif;
+      font-size: 30px;
+    }
+
+    .submit-button{
+      margin-top: 15px;
+      font-size:20px;
+      width: 5em;  height: 5em;
+      background-color: #6E988F;
+      border: none;
+      color: white;
+      padding: 5px 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      min-width: 10%;
+      height: 45px;
+    }
+
+    .patternImage{
+      max-width: 100%;
+      height: auto;
+    }
+
+    .patternnamediv{
+      font-weight: 400;
+      font-size: 30px;
+    }
+
+    .patternauthordiv{
+      font-style: italic;
+      font-weight: 400;
+      font-size: 15px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+    }
+
+    .examplenamediv{
+      font-weight: 400;
+      font-size: 25px;
+      text-align: center;
+    }
+
+    .exampleauthordiv{
+      font-style: italic;
+      font-weight: 400;
+      font-size: 15px;
+      margin-top: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+
+    .button {
+      background-color: white;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .customButton{
+      border: 1px solid lightgray;
+      border-radius: 4px;
+      background-color: white;
+      padding: 20px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+    }
+
+    .customButton:hover{
+      border: 1px solid #6E988F;
+      cursor: -webkit-grab;
+    }
+
+    .body1{
+      margin-top: 20px;
+      font-weight: 400;
+      /* font-size: 20px; */
+      font-size: 22px;
+    }
+
+    .body2{
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+    .body3{
+      margin-top: 0px;
+      font-weight: 400;
+      font-size: 22px;
+    }
+
+
+    .examplepattern{
+      margin-top: 20px;
+      font-weight: 400;
+      /* font-size: 20px; */
+      font-size: 22px;
+    }
+
+
+    ul, menu, dir {
+      display: block;
+      list-style-type: disc;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      /* -webkit-padding-start: 40px; */
+      -webkit-padding-start: 0px;
+    }
+
+    .rating li {
+      float: left;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      width: 13px;
+    }
+
+    .bar_rating li.filled {
+      /* background-color: green; */
+      background-color: #6E988F;
+      border-left-width: 0px;
+      border-right-width: 0px;
+      margin: 0px;
+      padding: 0px;
+      /* padding-left: 1px; */
+      width: 13px;
+    }
+
+    .bar_rating li {
+      background-color: #cccccc;
+      /* padding-top: 2px; */
+      /* padding-left: 1px; */
+      height: 12px;
+      width: 10px;
+      margin: 0px;
+      padding: 0px;
+      /* border-radius: 2px; */
+      width: 13px;
+    }
+
+    input{
+      flex: 1;
+      padding: 5px;
+      font-size: 15px;
+      /* min-width: 95%; */
+      /* min-width: 50%; */
+      /* max-width: 100%; */
+      min-width: 80%;
+      /* max-width: 50%; */
+      margin-right:10px;
+      height: 31px;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      border-color: lightgray;
+    }
+
+    a:link {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:visited {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #6E988F;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    a:active {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+
+
+</style>
+
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="head">
+
+          <div class="headcontent">
+
+            <div class="mytitle">
+              KnitPicker
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- <img src="/Users/jamiewilcox/Dropbox/RavelryDifficultyProject/flaskapp/PatternDifficultyPredictor/img/knit-pattern-green2.jpg"> -->
+        <!-- <img src="/static/knit-pattern-green2.jpg"> -->
+
+
+
+        <div class="searchbox">
+
+          <form action="/" method="POST">
+                <!-- <div class="url-label">Enter a Ravelry Pattern URL</div> -->
+                <div class="url-label">
+                  Enter a <a href="https://www.ravelry.com/patterns/search#craft=" decoration="none">Ravelry</a> Pattern URL
+                </div>
+
+                <!-- <input type="text" name="pattern url" value="https://www.ravelry.com/patterns/library/mysteries-she-wrote"> -->
+                <!-- <input class="submit-button" type="submit" value="SEARCH"> -->
+
+                <input list="patternurls" value="https://www.ravelry.com/patterns/library/mysteries-she-wrote" name="pattern url" required="required">
+                  <datalist id="patternurls">
+                    <option value="https://www.ravelry.com/patterns/library/mysteries-she-wrote">
+                    <option value="https://www.ravelry.com/patterns/library/chameleon-4">
+                    <option value="https://www.ravelry.com/patterns/library/124-1-bohemian-oasis">
+                    <option value="https://www.ravelry.com/patterns/library/103-1-silver-haze">
+                    <option value="https://www.ravelry.com/patterns/library/campside-pullover">
+                    <option value="https://www.ravelry.com/patterns/library/cable-mesh-pullover">
+                    <option value="https://www.ravelry.com/patterns/library/print-o-the-wave-stole">
+                    <option value="https://www.ravelry.com/patterns/library/neat-ripple">
+                    <option value="https://www.ravelry.com/patterns/library/echo-flower-shawl">
+                    <option value="https://www.ravelry.com/patterns/library/beginners-garter-stitch-scarf">
+                    <option value="https://www.ravelry.com/patterns/library/betty-salpekar-square">
+                    <option value="https://www.ravelry.com/patterns/library/cable-and-bobble-aran-sweater">
+                    <option value="https://www.ravelry.com/patterns/library/up-north-christmas-stockings">
+                    <option value="https://www.ravelry.com/patterns/library/round-bottom-mesh-market-bag">
+                    <option value="https://www.ravelry.com/patterns/library/square-motif-bag-on-the-bias-">
+                    <option value="https://www.ravelry.com/patterns/library/crochet-peacock-feathers">
+                    <option value="https://www.ravelry.com/patterns/library/pineapple-tablecloth">
+                    <option value="https://www.ravelry.com/patterns/library/lemmy-k">
+                    <option value="https://www.ravelry.com/patterns/library/golden-dreams-scarf">
+                    <option value="https://www.ravelry.com/patterns/library/delft-pillow">
+                    <option value="https://www.ravelry.com/patterns/library/monkey-socks">
+                  </datalist>
+
+                <input class="submit-button" type="submit" value="SEARCH">
+
+          </form>
+
+        </div>
+
+
+
+      <!-- Do this stuff as soon as prediction gets a value. -->
+      {% if prediction %}
+
+        <!-- If something goes wrong, display an error message. -->
+        {% if prediction == -5 %}
+
+        <div class="resultshead">
+          <div class="resultsheadcontent">
+
+            Oops! I couldn't find this pattern, please try another.
+
+          </div>
+        </div>
+
+        <!-- If all is well, display the results. -->
+        {% else %}
+
+        <div class="resultshead">
+          <div class="resultsheadcontent">
+
+            Results:
+
+          </div>
+        </div>
+
+        <div class="box-container">
+          <div class="box one">
+
+            <div class="patternImage">
+              <img src={{ pattern_photo_url }} alt="pic" >
+            </div>
+
+          </div>
+
+          <div class="box two">
+
+            <div class="patternnamediv">
+                {{ pattern_name }}
+            </div>
+
+                <!-- <br> -->
+
+            <div class="patternauthordiv">
+                by {{ pattern_author }}
+            </div>
+
+            <div class="body1">
+
+            <ul class="rating bar_rating">
+
+              {% if prediction|int > 0 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 1 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 2 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 3 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 4 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 5 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 6 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 7 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 8 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              {% if prediction|int > 9 %}
+                <li class="filled"></li>
+              {% else %}
+                <li></li>
+              {% endif %}
+
+              <!-- <li class="filled"></li>
+              <li></li>
+              <li class="filled"></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li> -->
+            </ul>
+
+            </div>
+            <br>
+
+              <div class="body3">
+                Difficulty Prediction: {{ prediction }}/10
+              </div>
+
+              <div class="body1">
+                These attributes predicted difficulty:
+              </div>
+
+              <div class="body2">
+                {{ ', '.join(difficult_features) }}
+              </div>
+
+              <div class="body1">
+                These attributes predicted easiness:
+              </div>
+
+              <div class="body2">
+                {{ ', '.join(easy_features) }}
+              </div>
+
+          </div>
+        </div>
+
+        {% endif %}
+
+      <!-- On the landing page, before predictino gets a value, show this stuff. -->
+      <!-- These will be my hard-coded, clickable landing page example patterns. -->
+      {% else %}
+
+      <div class="resultshead">
+        <div class="resultsheadcontent">
+
+          Or try one of these examples:
+
+        </div>
+      </div>
+
+
+        <div class="box-container2">
+
+          <!-- Example pattern -->
+          <form action="/" method="POST">
+            <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/lady-2">
+
+              <div class="examplenamediv">
+                  Lady
+              </div>
+
+              <div class="exampleauthordiv">
+                  by Elsebeth Lavold
+              </div>
+
+            <img src="https://images4-b.ravelrycache.com/uploads/tommeknits/2447157/lady_small.jpg" alt="pic" />
+
+            </button>
+          </form>
+
+          <!-- Example pattern -->
+          <form action="/" method="POST">
+            <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/connemara-pony">
+
+              <div class="examplenamediv">
+                  Connemara Pony
+              </div>
+
+              <div class="exampleauthordiv">
+                  by Kathryn Martin <br> and Evelyn Zlomke
+              </div>
+
+            <img src="https://images4-b.ravelrycache.com/uploads/mintyrae/15845730/connemara-pony_small.jpg" alt="pic" />
+
+            </button>
+          </form>
+
+          <!-- Example pattern -->
+          <form action="/" method="POST">
+            <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/sophies-universe-cal">
+
+              <div class="examplenamediv">
+                  Sophie's Universe
+              </div>
+
+              <div class="exampleauthordiv">
+                  by Dedru Uys
+              </div>
+
+            <img src="https://images4-e.ravelrycache.com/uploads/BarbertonDaisy/318886376/Sophie_s_Universe_Pat_18_Cotton_8_small.JPG" alt="pic" />
+
+            </button>
+          </form>
+
+        </div>
+
+        <div class="box-container2">
+
+          <!-- Example pattern -->
+          <form action="/" method="POST">
+            <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/the-age-of-brass-and-steam-kerchief">
+
+              <div class="examplenamediv">
+                The Age of Brass <br> and Steam Kerchief
+              </div>
+
+              <div class="exampleauthordiv">
+                  by Orange Flower Yarn
+              </div>
+
+            <img src="https://images4-e.ravelrycache.com/uploads/sketchbook/30390634/20_00-_leagues_shawl_2_small.jpg" alt="pic" />
+
+            </button>
+          </form>
+
+            <!-- Example pattern 2 -->
+            <!-- <form action="/" method="POST">
+              <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/effie-fair-isle-pullover">
+
+                <div class="examplenamediv">
+                  Effie Fair Isle <br> Pullover
+                </div>
+
+                <div class="exampleauthordiv">
+                    by Lucinda Guy
+                </div>
+
+              <img src="https://images4-b.ravelrycache.com/uploads/inhyung/26948141/Effie01_small.jpg" alt="pic" />
+
+              </button>
+            </form> -->
+
+
+              <!-- Example pattern -->
+              <form action="/" method="POST">
+                <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/simple-double-crochet-hat">
+
+                  <div class="examplenamediv">
+                    Simple Double <br> Crochet Hat
+                  </div>
+
+                  <div class="exampleauthordiv">
+                      by Rhondda Mol <br> (Oombawka Design)
+                  </div>
+
+                <img src="https://images4-b.ravelrycache.com/uploads/RhonddaM/265673930/double_crochet_beanie_medium_small.jpg" alt="pic" />
+
+                </button>
+              </form>
+
+              <!-- Example pattern -->
+              <form action="/" method="POST">
+                <button name="pattern url" id="customButton" type="submit" class="btn customButton" value="https://www.ravelry.com/patterns/library/wool--honey">
+
+                  <div class="examplenamediv">
+                    Wool & Honey
+                  </div>
+
+                  <div class="exampleauthordiv">
+                    by Andrea Mowry
+                  </div>
+
+                <img src="https://images4-b.ravelrycache.com/uploads/dreareneeknits/525847812/untitled-48_small.jpg" alt="pic" />
+
+                </button>
+              </form>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+      {% endif %}
+
+
+    </div>
+</body>
+
+</html>
