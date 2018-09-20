@@ -1,4 +1,4 @@
-Note that this app is incomplete and WILL NOT RUN, because I have removed the contents of the file RavelrySecret.txt in the data folder. RavelrySecret.txt in the real app contains my app developer username and password that allows me to access the Ravelry API. If you want to make your own app, you will need to fill in these values with your own username and password.
+Note that this app is incomplete and WILL NOT RUN, because I have removed the contents of the file RavelrySecret.txt in the data folder. RavelrySecret.txt in the real app contains my app developer username and password that allows me to access the Ravelry API. If you want to make your own app that queries the Ravelry API, you will need to fill in these values with your own username and password.
 
 This code is a simplified version of the code that runs my app, [knitpicker.site](knitpicker.site). Knitpicker is an app that helps knitters find the right pattern for their skill level by predicting and explaining knitting pattern difficulty. The app predicts the difficulty of knitting (and crochet) patterns from the social media website [ravelry.com](ravelry.com).
 
