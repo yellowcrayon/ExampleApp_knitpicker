@@ -50,8 +50,6 @@ def get_difficulty_prediction():
                                pattern_name=pattern_name, pattern_photo_url=pattern_photo_url,
                                difficult_features=difficult_features, easy_features=easy_features)
 
-    # Don't tell the programmers :'(
-    # I just need to be able to make one simple error message on my site when stuff goes wrong.
     except:
         print('exception')
         difficulty_prediction = -5
